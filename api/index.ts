@@ -37,7 +37,7 @@ app.post('/api/laporan', async (req, res) => {
         });
 
         console.log('WhatsApp message sent: ', messageResponse.sid);
-        res.json({ status: 'success', message: 'Laporan Anda telah diterima dan pesan WhatsApp telah dikirim!' });
+        res.json({ status: 'success', message: 'Laporan Anda Anda Telah Di Terima!!!' });
     } catch (error) {
         console.error('Error occurred: ', error.message);
         res.status(500).json({ status: 'error', message: error.message });
