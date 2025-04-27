@@ -1,100 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Curhat PIK-R SMAKDA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Importing Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
     <style type="text/css">
         body {
-            font-family: 'Roboto', sans-serif; /* Changed font to Roboto */
+            font-family: 'Roboto', sans-serif;
             display: flex;
-            flex-direction: column; /* Changed to column for header */
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            background-color: #e7f3fe; /* Light blue background */
+            background-color: #8c7ae6; /* Purple background */
             margin: 0;
         }
 
         header {
             display: flex;
-            justify-content: space-between; /* Space logos to the sides */
+            justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 10px 20px; /* Added padding for better spacing */
-            background-color: #fff; /* White background for header */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            background-color: #e63946; /* Red background for header */
+            color: white; /* White text */
+            font-weight: bold;
+            position: relative;
         }
 
         .logo {
-            width: 80px; /* Set logo width */
-            height: auto; /* Maintain aspect ratio */
+            width: 80px;
+            height: auto;
         }
 
         .welcome-message {
-            font-size: 20px; /* Font size for welcome message */
-			font-style: oblique;
-            color: #333; /* Color for welcome message */
-            text-align: center; /* Center align text */
-            margin: 10px 0; /* Space above and below welcome message */
+            font-size: 24px; 
+            text-align: center;
+            margin: 10px 0;
+            flex-grow: 1;
         }
 
         .container {
             text-align: center;
             background-color: white;
-            padding: 20px; /* Reduced padding */
+            padding: 20px;
             border-radius: 16px;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-            width: 90%; /* Changed to percentage for responsiveness */
-            max-width: 400px; /* Maximum width */
-            margin-top: 20px; /* Space between header and container */
+            width: 90%;
+            max-width: 400px; 
+            margin-top: 20px;
         }
 
         h1 {
-            font-size: 24px; /* Adjusted font size */
+            font-size: 24px; 
             color: #333;
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         textarea {
             width: 100%;
-            height: 100px; /* Adjusted height */
-            margin-bottom: 10px; /* Reduced margin */
-            padding: 10px; /* Reduced padding */
-            border: 1px solid #ccc;
+            height: 100px; 
+            padding: 10px; 
+            border: 2px solid #333; 
             border-radius: 8px;
             resize: none;
-            font-size: 14px; /* Adjusted font size */
+            font-size: 14px; 
+            color: rgba(0, 0, 0, 0.6); 
+            font-style: italic; 
         }
 
         button {
-            padding: 10px 20px; /* Adjusted padding */
-            font-size: 16px; /* Adjusted font size */
+            padding: 12px 20px;
+            font-size: 16px;
             color: white;
             background-color: #ff4757;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-top: 20px;
         }
 
         button:hover {
             background-color: #d6363f;
         }
 
-        #responseMessage {
-            margin-top: 10px; /* Reduced margin */
-            font-weight: bold;
-            color: #2ecc71;
-        }
-
         footer {
-            position: absolute;
-            bottom: 10px;
+            margin-top: 20px;
             text-align: center;
             width: 100%;
-            font-size: 12px; /* Adjusted font size */
+            font-size: 12px;
             color: #666;
         }
 
@@ -106,28 +103,13 @@
         .footer-link:hover {
             text-decoration: underline;
         }
-
-        /* Media Query for Mobile Devices */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 20px; /* Smaller title for mobile */
-            }
-
-            button {
-                font-size: 14px; /* Smaller button font */
-            }
-
-            textarea {
-                font-size: 12px; /* Smaller textarea font */
-            }
-        }
     </style>
 </head>
 <body>
     <header>
-        <img src="components/logo-smk2.png" alt="Logo " class="logo"> 
-        <div class="welcome-message">Welcome To Website Curhat PIK-R</div>
-        <img src="components/logo-pikr.png" alt="Logo 2" class="logo"> 
+        <img src="logo-smk2.png" alt="Logo 1" class="logo"> 
+        <div class="welcome-message">WELCOME TO PIK-R CURHAT</div>
+        <img src="logo-pikr.png" alt="Logo 2" class="logo"> 
     </header>
     <div class="container">
         <h1>WEB CURHAT PIK-R SMAKDA</h1>
@@ -135,13 +117,14 @@
             <textarea id="message" placeholder="Input your curhat here" required></textarea>
             <button type="submit">Kirim</button>
         </form>
-        <div id="responseMessage"></div>
     </div>
+    <footer>
+        <p>&copy; 2025 COM SMAKDA. All rights reserved. | <a class="footer-link" href="https://www.instagram.com/com_smakdapinrang?igsh=MXNzYjVid2pva2IxaQ==">Community Programmer</a></p>
+    </footer>
     <script type="text/javascript">
         (function () {
             document.getElementById('reportForm').addEventListener('submit', async (event) => {
-                event.preventDefault(); // Prevent default form submission
-
+                event.preventDefault();
                 const message = document.getElementById('message').value;
 
                 try {
@@ -154,11 +137,7 @@
                     });
 
                     const data = await response.json();
-                    if (data.status === 'success') {
-                        document.getElementById('responseMessage').innerText = data.message; // Show response message
-                    } else {
-                        document.getElementById('responseMessage').innerText = data.message;
-                    }
+                    document.getElementById('responseMessage').innerText = data.message;
                 } catch (error) {
                     console.error('Error:', error);
                     document.getElementById('responseMessage').innerText = 'Terjadi kesalahan saat mengirim laporan!';
@@ -166,8 +145,5 @@
             });
         })();
     </script>
-    <footer>
-        <p>&copy; 2025 COM SMAKDA. All rights reserved. | <a class="footer-link" href="https://www.instagram.com/com_smakdapinrang?igsh=MXNzYjVid2pva2IxaQ==">Communty Programmer</a></p>
-    </footer>
 </body>
 </html>
