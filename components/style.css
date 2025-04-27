@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Added for better box model handling */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -40,7 +41,8 @@ header .welcome-message {
 }
 
 .content .container {
-    width: 400px;
+    width: 90%; /* Changed to 90% for better mobile fit */
+    max-width: 400px; /* Maintain max width for larger screens */
     padding: 20px;
     background-color: white;
     border-radius: 15px;
@@ -69,7 +71,6 @@ header .welcome-message {
     border-radius: 5px;
     font-style: italic;
     margin-bottom: 5px;
-    box-sizing: border-box;
     border: 2px dashed #333;
     color: rgba(0, 0, 0, 0.6);
 }
@@ -98,7 +99,6 @@ footer {
     color: #666;
 }
 
-
 .footer-link {
     color: #000;
     text-decoration: none;
@@ -108,10 +108,11 @@ footer {
     text-decoration: underline;
 }
 
+/* Media Queries for Mobile Responsiveness */
 @media (max-width: 600px) {
     header {
         position: relative;
-        width: 80%;
+        width: 90%; /* Adjusted for mobile */
         margin: auto;
         top: 60px;
         border-radius: 15px;
@@ -129,7 +130,17 @@ footer {
         font-size: 20px; 
     }
 
+    .content .container {
+        width: 90%; /* Ensure container fits well on mobile */
+        padding: 15px; /* Adjust padding for mobile */
+    }
+
     .content button {
         font-size: 14px; 
+        padding: 8px 12px; /* Adjust button padding for mobile */
+    }
+
+    .content #reportForm textarea {
+        height: 150px; /* Adjust textarea height for mobile */
     }
 }
