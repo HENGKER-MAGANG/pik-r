@@ -11,7 +11,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             height: 100vh;
             background-color: #8c7ae6; /* Purple background */
             margin: 0;
@@ -26,7 +25,6 @@
             background-color: #e63946; /* Red background for header */
             color: white; /* White text */
             font-weight: bold;
-            position: relative;
         }
 
         .logo {
@@ -35,10 +33,9 @@
         }
 
         .welcome-message {
-            font-size: 24px; 
+            font-size: 24px; /* Increased font size for welcome message */
             text-align: center;
             margin: 10px 0;
-            flex-grow: 1;
         }
 
         .container {
@@ -56,19 +53,18 @@
             font-size: 24px; 
             color: #333;
             margin-bottom: 15px;
-            text-align: center;
         }
 
         textarea {
             width: 100%;
             height: 100px; 
             padding: 10px; 
-            border: 2px solid #333; 
+            border: 2px solid #333; /* Thicker black border */
             border-radius: 8px;
             resize: none;
             font-size: 14px; 
-            color: rgba(0, 0, 0, 0.6); 
-            font-style: italic; 
+            color: rgba(0, 0, 0, 0.6); /* Gray text */
+            font-style: italic; /* Changed to italic */
         }
 
         button {
@@ -80,15 +76,23 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-top: 20px;
+            margin-top: 20px; /* Increased margin for spacing */
+            margin-bottom: 10px; /* Adding bottom margin */
         }
 
         button:hover {
             background-color: #d6363f;
         }
 
+        #responseMessage {
+            margin-top: 10px; 
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
         footer {
-            margin-top: 20px;
+            position: absolute;
+            bottom: 10px;
             text-align: center;
             width: 100%;
             font-size: 12px;
@@ -103,11 +107,26 @@
         .footer-link:hover {
             text-decoration: underline;
         }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px; 
+            }
+
+            button {
+                font-size: 14px; 
+            }
+
+            textarea {
+                font-size: 12px; 
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="components/logo-smk2.png" alt="Logo 1" class="logo"> 
+        <img src="components/logo-smk2.png" alt="Logo" class="logo"> 
         <div class="welcome-message">WELCOME TO PIK-R CURHAT</div>
         <img src="components/logo-pikr.png" alt="Logo 2" class="logo"> 
     </header>
@@ -117,14 +136,13 @@
             <textarea id="message" placeholder="Input your curhat here" required></textarea>
             <button type="submit">Kirim</button>
         </form>
+        <div id="responseMessage"></div>
     </div>
-    <footer>
-        <p>&copy; 2025 COM SMAKDA. All rights reserved. | <a class="footer-link" href="https://www.instagram.com/com_smakdapinrang?igsh=MXNzYjVid2pva2IxaQ==">Community Programmer</a></p>
-    </footer>
     <script type="text/javascript">
         (function () {
             document.getElementById('reportForm').addEventListener('submit', async (event) => {
                 event.preventDefault();
+
                 const message = document.getElementById('message').value;
 
                 try {
@@ -145,5 +163,8 @@
             });
         })();
     </script>
+    <footer>
+        <p>&copy; 2025 COM SMAKDA. All rights reserved. | <a class="footer-link" href="https://www.instagram.com/com_smakdapinrang?igsh=MXNzYjVid2pva2IxaQ==">Community Programmer</a></p>
+    </footer>
 </body>
 </html>
