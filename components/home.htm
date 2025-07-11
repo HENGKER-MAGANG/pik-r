@@ -1,34 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB CURHAT PIK-R SMAKDA</title>
-    <link rel="stylesheet" href="components/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback MPLS SMAKDA</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('../assets/grass_background.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    .minecraft-font {
+      font-family: 'Press Start 2P', cursive;
+    }
+    .pixel-shadow {
+      text-shadow: 2px 2px #000;
+    }
+    .star {
+      cursor: pointer;
+      font-size: 1.7rem;
+      color: #facc15;
+      transition: transform 0.2s ease-in-out;
+    }
+    .star:hover {
+      transform: scale(1.2);
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <img src="components/logo-smk2.png" class="logo"> 
-        <div class="welcome-message">WELCOME TO PIK-R CURHAT</div>
-        <img src="components/logo-pikr.png" class="logo"> 
-    </header>
+<body class="flex flex-col min-h-screen text-white">
 
-    
-    <section class="content">
-        <div class="container">
-            <h1>WEB CURHAT PIK-R SMAKDA</h1>
-            <form id="reportForm">
-                <textarea id="message" placeholder="Input your curhat here" required></textarea>
-            </form>
+  <!-- Header -->
+  <header class="bg-green-800 border-b-4 border-green-900 px-4 py-3 shadow-md">
+    <div class="flex justify-between items-center max-w-6xl mx-auto">
+      <img src="../assets/blok-tanah.png" alt="Block" class="w-8 sm:w-10">
+      <h1 class="text-xs sm:text-base md:text-xl font-bold minecraft-font text-yellow-300 pixel-shadow text-center flex-1">
+        FEEDBACK MPLS SMAKDA
+      </h1>
+      <img src="../assets/orang.png" alt="Steve" class="w-8 sm:w-10">
+    </div>
+  </header>
+
+  <!-- Gambar Sekolah -->
+  <section class="bg-green-700 py-4 border-y-4 border-green-900">
+    <div class="flex justify-center">
+      <img src="../assets/smakda.jpg" alt="SMKN 2 Pinrang Minecraft" class="w-[95%] md:w-2/3 rounded-xl shadow-2xl border-4 border-green-900" />
+    </div>
+  </section>
+
+  <!-- Form -->
+  <main class="flex-grow flex items-center justify-center px-4 py-10">
+    <div class="bg-green-900/90 border-4 border-green-700 rounded-xl shadow-2xl w-full max-w-md px-6 py-6">
+      <h2 class="text-base font-bold text-center minecraft-font text-yellow-200 mb-5">
+        Kirim Pesan & Penilaian
+      </h2>
+
+      <div class="flex justify-center mb-4">
+        <img src="../assets/diamond_sword.png" alt="Sword" class="w-12 hover:scale-105 transition" />
+      </div>
+
+      <form id="reportForm" class="space-y-5 text-sm">
+        <div>
+          <label for="message" class="block font-semibold mb-1">
+            <i class="bi bi-chat-left-text-fill mr-1"></i> Pesan
+          </label>
+          <textarea id="message" name="message" rows="4" required placeholder="Tulis isi curhat atau pendapatmu..." class="w-full p-3 rounded-lg text-black placeholder-gray-500 focus:ring-4 focus:ring-yellow-300 focus:outline-none resize-none"></textarea>
         </div>
-        <button type="submit">Kirim</button>
-    </section>
 
+        <div>
+          <label class="block font-semibold mb-1">
+            <i class="bi bi-star-fill mr-1"></i> Penilaian
+          </label>
+          <div id="rating" class="flex justify-center gap-2 text-yellow-400">
+            <i class="bi bi-star star" data-value="1"></i>
+            <i class="bi bi-star star" data-value="2"></i>
+            <i class="bi bi-star star" data-value="3"></i>
+            <i class="bi bi-star star" data-value="4"></i>
+            <i class="bi bi-star star" data-value="5"></i>
+          </div>
+          <input type="hidden" name="rating" id="ratingValue" required>
+        </div>
 
-    <footer>
-        <p>&copy; 2025 COM SMAKDA. All rights reserved. | <a class="footer-link" href="https://www.instagram.com/com_smakdapinrang?igsh=MXNzYjVid2pva2IxaQ==">Community Programmer</a></p>
-    </footer>
-    
-    <script src="components/script.js"></script>
+        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 rounded-lg shadow-lg transform hover:scale-105 transition flex items-center justify-center gap-2">
+          <i class="bi bi-send-fill"></i> Kirim Feedback
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1b5e20] text-center py-3 text-xs border-t-4 border-green-900">
+    <p class="text-yellow-300">&copy; 2025 COM SMAKDA. All rights reserved.</p>
+    <a href="https://www.instagram.com/com_smakdapinrang" class="text-yellow-300 underline hover:text-yellow-400 flex justify-center items-center gap-1 mt-1">
+      <i class="bi bi-instagram"></i> @com_smakdapinrang
+    </a>
+  </footer>
+
+  <!-- SweetAlert + Rating Script -->
+<script>
+  const form = document.getElementById("reportForm");
+  const stars = document.querySelectorAll(".star");
+  const ratingInput = document.getElementById("ratingValue");
+  let selectedRating = 0;
+
+  // Handle Star Rating
+  stars.forEach((star) => {
+    star.addEventListener("click", () => {
+      selectedRating = star.dataset.value;
+      ratingInput.value = selectedRating;
+
+      stars.forEach(s => s.classList.replace("bi-star-fill", "bi-star"));
+      stars.forEach(s => {
+        if (s.dataset.value <= selectedRating) {
+          s.classList.replace("bi-star", "bi-star-fill");
+        }
+      });
+    });
+  });
+
+  // Handle Form Submission
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const message = document.getElementById("message").value.trim();
+
+    if (!selectedRating) {
+      return Swal.fire({
+        icon: 'warning',
+        title: 'Belum Ada Rating',
+        text: 'Silakan beri penilaian terlebih dahulu.',
+        confirmButtonColor: '#388e3c'
+      });
+    }
+
+    if (!message) {
+      return Swal.fire({
+        icon: 'warning',
+        title: 'Pesan Kosong',
+        text: 'Silakan isi pesan terlebih dahulu.',
+        confirmButtonColor: '#388e3c'
+      });
+    }
+
+    try {
+      const response = await fetch('/api/laporan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: `Rating: ${selectedRating}\nPesan: ${message}` })
+      });
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: result.message,
+          confirmButtonColor: '#388e3c'
+        });
+
+        form.reset();
+        selectedRating = 0;
+        ratingInput.value = '';
+        stars.forEach(s => s.classList.replace("bi-star-fill", "bi-star"));
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal Mengirim',
+        text: error.message,
+        confirmButtonColor: '#c62828'
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

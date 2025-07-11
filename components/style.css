@@ -33,7 +33,7 @@ header .welcome-message {
 
 .content {
     gap: 15px;
-    height: 85vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     flex-direction: column;
