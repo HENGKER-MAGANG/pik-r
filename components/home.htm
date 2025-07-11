@@ -104,85 +104,83 @@
     </a>
   </footer>
 
-  <!-- SweetAlert + Rating Script -->
-<script>
-  const form = document.getElementById("reportForm");
-  const stars = document.querySelectorAll(".star");
-  const ratingInput = document.getElementById("ratingValue");
-  let selectedRating = 0;
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const form = document.getElementById("reportForm");
+    const stars = document.querySelectorAll(".star");
+    const ratingInput = document.getElementById("ratingValue");
+    let selectedRating = 0;
 
-  // Handle Star Rating
-  stars.forEach((star) => {
-    star.addEventListener("click", () => {
-      selectedRating = star.dataset.value;
-      ratingInput.value = selectedRating;
+    stars.forEach((star) => {
+      star.addEventListener("click", () => {
+        selectedRating = star.dataset.value;
+        ratingInput.value = selectedRating;
 
-      stars.forEach(s => s.classList.replace("bi-star-fill", "bi-star"));
-      stars.forEach(s => {
-        if (s.dataset.value <= selectedRating) {
-          s.classList.replace("bi-star", "bi-star-fill");
-        }
+        stars.forEach(s => s.classList.replace("bi-star-fill", "bi-star"));
+        stars.forEach(s => {
+          if (s.dataset.value <= selectedRating) {
+            s.classList.replace("bi-star", "bi-star-fill");
+          }
+        });
       });
     });
-  });
 
-  // Handle Form Submission
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const message = document.getElementById("message").value.trim();
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const message = document.getElementById("message").value.trim();
 
-    if (!selectedRating) {
-      return Swal.fire({
-        icon: 'warning',
-        title: 'Belum Ada Rating',
-        text: 'Silakan beri penilaian terlebih dahulu.',
-        confirmButtonColor: '#388e3c'
-      });
-    }
-
-    if (!message) {
-      return Swal.fire({
-        icon: 'warning',
-        title: 'Pesan Kosong',
-        text: 'Silakan isi pesan terlebih dahulu.',
-        confirmButtonColor: '#388e3c'
-      });
-    }
-
-    try {
-      const response = await fetch('/api/laporan', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: `Rating: ${selectedRating}\nPesan: ${message}` })
-      });
-
-      const result = await response.json();
-
-      if (result.status === 'success') {
-        Swal.fire({
-          icon: 'success',
-          title: 'Berhasil!',
-          text: result.message,
+      if (!selectedRating) {
+        return Swal.fire({
+          icon: 'warning',
+          title: 'Belum Ada Rating',
+          text: 'Silakan beri penilaian terlebih dahulu.',
           confirmButtonColor: '#388e3c'
         });
-
-        form.reset();
-        selectedRating = 0;
-        ratingInput.value = '';
-        stars.forEach(s => s.classList.replace("bi-star-fill", "bi-star"));
-      } else {
-        throw new Error(result.message);
       }
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Gagal Mengirim',
-        text: error.message,
-        confirmButtonColor: '#c62828'
-      });
-    }
-  });
-</script>
 
+      if (!message) {
+        return Swal.fire({
+          icon: 'warning',
+          title: 'Pesan Kosong',
+          text: 'Silakan isi pesan terlebih dahulu.',
+          confirmButtonColor: '#388e3c'
+        });
+      }
+
+      try {
+        const response = await fetch('/api/laporan', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: `Rating: ${selectedRating}\nPesan: ${message}` })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Feedback Terkirim!',
+            text: result.message,
+            confirmButtonColor: '#388e3c'
+          });
+
+          form.reset();
+          selectedRating = 0;
+          ratingInput.value = '';
+          stars.forEach(s => s.classList.replace("bi-star-fill", "bi-star"));
+        } else {
+          throw new Error(result.message || 'Gagal mengirim feedback');
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Gagal Mengirim!',
+          text: error.message,
+          confirmButtonColor: '#c62828'
+        });
+      }
+    });
+  </script>
 </body>
 </html>
