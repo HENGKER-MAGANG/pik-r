@@ -28,7 +28,7 @@ app.post('/api/laporan', async (req, res) => {
       {
         target: process.env.MY_WHATSAPP_NUMBER, // nomor tujuan
         message: message,                       // isi pesan
-        countryCode: '62'                       // kode negara Indonesia
+        // countryCode: '62'                       // kode negara Indonesia
       },
       {
         headers: {
