@@ -2,33 +2,26 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feedback MPLS SMAKDA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback COM SMKN 2 Pinrang</title>
 
   <!-- Tailwind CSS -->
-  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
 
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-image: url('../assets/grass_background.png');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-    }
-    .minecraft-font {
-      font-family: 'Press Start 2P', cursive;
-    }
-    .pixel-shadow {
-      text-shadow: 2px 2px #000;
+      font-family: 'Fira Code', monospace;
+      background-color: #0d1117;
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      color: #e0e0e0;
     }
     .star {
       cursor: pointer;
       font-size: 1.7rem;
-      color: #facc15;
+      color: #00ff99;
       transition: transform 0.2s ease-in-out;
     }
     .star:hover {
@@ -36,50 +29,41 @@
     }
   </style>
 </head>
-<body class="flex flex-col min-h-screen text-white">
+<body class="flex flex-col min-h-screen">
 
   <!-- Header -->
-  <header class="bg-green-800 border-b-4 border-green-900 px-4 py-3 shadow-md">
-    <div class="flex justify-between items-center max-w-6xl mx-auto">
-      <img src="/assets/blok-tanah.png" alt="Block" class="w-8 sm:w-10">
-      <h1 class="text-xs sm:text-base md:text-xl font-bold minecraft-font text-yellow-300 pixel-shadow text-center flex-1">
-        FEEDBACK MPLS SMAKDA
-      </h1>
-      <img src="/assets/orang.png" alt="Steve" class="w-8 sm:w-10">
+  <header class="bg-[#161b22] border-b-2 border-[#30363d] px-4 py-4 shadow-md">
+    <div class="max-w-5xl mx-auto text-center">
+      <h1 class="text-2xl font-bold text-[#58a6ff]">💻 FEEDBACK COM SMKN 2 PINRANG</h1>
+      <p class="text-sm text-gray-400 mt-1">"Your voice improves our code!"</p>
     </div>
   </header>
 
-  <!-- Gambar Sekolah -->
-  <section class="bg-green-700 py-4 border-y-4 border-green-900">
+  <!-- Gambar -->
+  <section class="bg-[#0d1117] py-5">
     <div class="flex justify-center">
-      <img src="/assets/smakda.jpg" alt="SMKN 2 Pinrang Minecraft" class="w-[95%] md:w-2/3 rounded-xl shadow-2xl border-4 border-green-900" />
+      <img src="/assets/smakda.jpg" alt="SMKN 2 Pinrang" class="w-[95%] md:w-2/3 rounded-xl border-4 border-[#30363d] shadow-lg"/>
     </div>
   </section>
 
   <!-- Form -->
   <main class="flex-grow flex items-center justify-center px-4 py-10">
-    <div class="bg-green-900/90 border-4 border-green-700 rounded-xl shadow-2xl w-full max-w-md px-6 py-6">
-      <h2 class="text-base font-bold text-center minecraft-font text-yellow-200 mb-5">
-        Kirim Pesan & Penilaian
-      </h2>
-
-      <div class="flex justify-center mb-4">
-        <img src="/assets/diamond_sword.png" alt="Sword" class="w-12 hover:scale-105 transition" />
-      </div>
+    <div class="bg-[#161b22] border border-[#30363d] rounded-lg w-full max-w-md p-6 shadow-lg">
+      <h2 class="text-lg font-semibold text-center text-[#58a6ff] mb-5">📝 Kirim Feedbackmu</h2>
 
       <form id="reportForm" class="space-y-5 text-sm">
         <div>
-          <label for="message" class="block font-semibold mb-1">
+          <label for="message" class="block font-medium mb-1 text-gray-300">
             <i class="bi bi-chat-left-text-fill mr-1"></i> Pesan
           </label>
-          <textarea id="message" name="message" rows="4" required placeholder="Tulis isi curhat atau pendapatmu..." class="w-full p-3 rounded-lg text-black placeholder-gray-500 focus:ring-4 focus:ring-yellow-300 focus:outline-none resize-none"></textarea>
+          <textarea id="message" name="message" rows="4" required placeholder="Tulis pesanmu untuk komunitas..." class="w-full p-3 rounded bg-[#0d1117] text-white border border-[#30363d] placeholder-gray-500 focus:ring-2 focus:ring-[#58a6ff] focus:outline-none resize-none"></textarea>
         </div>
 
         <div>
-          <label class="block font-semibold mb-1">
+          <label class="block font-medium mb-1 text-gray-300">
             <i class="bi bi-star-fill mr-1"></i> Penilaian
           </label>
-          <div id="rating" class="flex justify-center gap-2 text-yellow-400">
+          <div id="rating" class="flex justify-center gap-2 text-[#00ff99]">
             <i class="bi bi-star star" data-value="1"></i>
             <i class="bi bi-star star" data-value="2"></i>
             <i class="bi bi-star star" data-value="3"></i>
@@ -89,7 +73,7 @@
           <input type="hidden" name="rating" id="ratingValue" required>
         </div>
 
-        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 rounded-lg shadow-lg transform hover:scale-105 transition flex items-center justify-center gap-2">
+        <button type="submit" class="w-full bg-[#238636] hover:bg-[#2ea043] text-white font-bold py-2 rounded shadow-md transform hover:scale-105 transition flex items-center justify-center gap-2">
           <i class="bi bi-send-fill"></i> Kirim Feedback
         </button>
       </form>
@@ -97,9 +81,9 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-[#1b5e20] text-center py-3 text-xs border-t-4 border-green-900">
-    <p class="text-yellow-300">&copy; 2025 COM SMAKDA. All rights reserved.</p>
-    <a href="https://www.instagram.com/com_smakdapinrang" class="text-yellow-300 underline hover:text-yellow-400 flex justify-center items-center gap-1 mt-1">
+  <footer class="bg-[#161b22] text-center py-3 text-xs border-t border-[#30363d]">
+    <p class="text-gray-400">&copy; 2025 COM SMKN 2 Pinrang</p>
+    <a href="https://instagram.com/com_smakdapinrang" class="text-[#58a6ff] hover:underline mt-1 inline-block">
       <i class="bi bi-instagram"></i> @com_smakdapinrang
     </a>
   </footer>
@@ -135,7 +119,7 @@
           icon: 'warning',
           title: 'Belum Ada Rating',
           text: 'Silakan beri penilaian terlebih dahulu.',
-          confirmButtonColor: '#388e3c'
+          confirmButtonColor: '#58a6ff'
         });
       }
 
@@ -144,7 +128,7 @@
           icon: 'warning',
           title: 'Pesan Kosong',
           text: 'Silakan isi pesan terlebih dahulu.',
-          confirmButtonColor: '#388e3c'
+          confirmButtonColor: '#58a6ff'
         });
       }
 
@@ -162,7 +146,7 @@
             icon: 'success',
             title: 'Feedback Terkirim!',
             text: result.message,
-            confirmButtonColor: '#388e3c'
+            confirmButtonColor: '#238636'
           });
 
           form.reset();
@@ -177,7 +161,7 @@
           icon: 'error',
           title: 'Gagal Mengirim!',
           text: error.message,
-          confirmButtonColor: '#c62828'
+          confirmButtonColor: '#f85149'
         });
       }
     });
